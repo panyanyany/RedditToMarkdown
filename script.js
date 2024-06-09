@@ -5,8 +5,8 @@ var style = 0
 var escapeNewLine = false
 var spaceComment = false
 
-function fetchData(url) {
-  output = ''
+function fetchData(url, prependText) {
+  output = prependText + '\n\n'
 
   http.open("GET", `${url}.json`)
   http.responseType = 'json';
@@ -55,7 +55,7 @@ function startExport() {
 
   var url = document.getElementById('url').value
   if (url) {
-    fetchData(url)
+    fetchData(url, document.getElementById('prependText').value)
   } else {
     console.log("No url provided")
   }
