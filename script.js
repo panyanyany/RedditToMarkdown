@@ -83,7 +83,7 @@ function displayTitle(post) {
     output += `\n${post.selftext}\n`
   }
   output += `\n[permalink](https://reddit.com${post.permalink})`
-  output += `\nby *${post.author}* (↑ ${post.ups}/ ↓ ${post.downs}) on ${date}\n\n`
+  output += `\nby *${post.author}* (↑ ${post.ups}/ ↓ ${post.downs}) published on ${date}\n\n`
 }
 
 function formatComment(text) {
