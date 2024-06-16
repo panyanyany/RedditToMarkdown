@@ -6,6 +6,7 @@ var escapeNewLine = false
 var spaceComment = false
 
 function fetchData(url, prependText) {
+  ouput_display.innerHTML = '';
   output = ''
   if (prependText) {
     output = prependText + '\n\n'
