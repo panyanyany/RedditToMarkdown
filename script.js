@@ -6,6 +6,7 @@ var escapeNewLine = false
 var spaceComment = false
 
 function fetchData(url, prependText) {
+  var ouput_display = document.getElementById("ouput-display");
   ouput_display.innerHTML = '';
   output = ''
   if (prependText) {
@@ -25,7 +26,6 @@ function fetchData(url, prependText) {
     comments.forEach(displayComment);
 
     console.log("Done")
-    var ouput_display = document.getElementById("ouput-display");
     var ouput_block = document.getElementById("ouput-block");
     ouput_block.removeAttribute("hidden");
     ouput_display.innerHTML = output;
