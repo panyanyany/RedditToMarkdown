@@ -79,6 +79,9 @@ function displayTitle(post) {
   const created = new Date(post.created_utc * 1000)
   const date = created.toISOString().split('T')[0]
   output += `# ${post.title}\n`
+  if (post.url && post.url.match(/\.(jpeg|jpg|gif|png)$/)) {
+    output += `\n![](${post.url})\n`
+  }
   if (post.selftext) {
     output += `\n${post.selftext}\n`
   }
