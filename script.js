@@ -83,6 +83,16 @@ function displayTitle(post) {
   if (post.url && post.url.match(/\.(jpeg|jpg|gif|png)$/)) {
     output += `\n![](${post.url})\n`
   }
+  // Check if the post has a video or gallery
+  if (post.is_video) {
+    output += `\n<video src="${post.media.reddit_video.fallback_url}" controls></video>\n`
+  } else if (post.is_gallery) {
+    post.gallery_data.items.forEach(item => {
+      const mediaId = item.media_id
+      const mediaUrl = post.media_metadata[mediaId].s.u
+      output += `\n![](${mediaUrl})\n`
+    })
+  }
   if (post.selftext) {
     output += `\n${post.selftext}\n`
   }
