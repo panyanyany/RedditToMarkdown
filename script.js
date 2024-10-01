@@ -28,7 +28,7 @@ function fetchData(url, prependText) {
     console.log("Done")
     var ouput_block = document.getElementById("ouput-block");
     ouput_block.removeAttribute("hidden");
-    ouput_display.innerHTML = output;
+    ouput_display.innerHTML = escapeHtml(output);
     download(output, 'output.md', 'text/plain')
   }
 }
@@ -146,4 +146,13 @@ function displayComment(comment, index) {
       output += '\n'
     }
   }
+}
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
 }
