@@ -27,7 +27,7 @@ function fetchData(url, prependText) {
 
     console.log("Done")
     var ouput_block = document.getElementById("ouput-block");
-    ouput_block.removeAttribute("hidden");
+    ouput_block.classList.remove("d-none");
     ouput_display.innerHTML = escapeHtml(output);
     download(output, 'output.md', 'text/plain')
   }
